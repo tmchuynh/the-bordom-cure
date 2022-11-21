@@ -1,0 +1,28 @@
+{
+  "name": "the-bordom-cure",
+  "version": "1.0.0",
+  "description": "activities to try + entertainment for the bored mind",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch public/scss -o public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tmchuynh/the-bordom-cure.git"
+  },
+  "keywords": [
+    "entertainment",
+    "bored",
+    "boredom",
+    "silly",
+    "funny",
+    "laugh"
+  ],
+  "author": "Tina Huynh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmchuynh/the-bordom-cure/issues"
+  },
+  "homepage": "https://github.com/tmchuynh/the-bordom-cure#readme"
+}
