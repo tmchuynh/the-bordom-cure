@@ -83,11 +83,43 @@ p {
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas: "one ." "one ." ". .";
-  padding-top: 3rem; }
+  padding-top: 3rem;
+  position: relative; }
   .container-fluid .rainbow {
+    position: relative;
     grid-area: one;
     border: 1px solid black; }
-  .container-fluid .activites, .container-fluid .numbers, .container-fluid .random {
+    .container-fluid .rainbow canvas {
+      display: flex;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%; }
+    .container-fluid .rainbow #control-panel {
+      background: rgba(233, 233, 233, 0.75);
+      border: 1px solid #333;
+      left: 20px;
+      padding: 10px 15px;
+      position: absolute;
+      top: 20px;
+      z-index: 2; }
+    .container-fluid .rainbow p {
+      font-size: 12px;
+      margin: 0 0 5px; }
+    .container-fluid .rainbow label {
+      font-size: 12px;
+      font-weight: bold; }
+    .container-fluid .rainbow button {
+      display: block;
+      margin: 10px 0 5px; }
+    .container-fluid .rainbow a {
+      border-bottom: 1px dotted #444;
+      color: black;
+      font-size: 12px;
+      text-decoration: none; }
+  .container-fluid .activites,
+  .container-fluid .numbers,
+  .container-fluid .random {
     border: 1px solid black;
     height: 5rem; }
 
@@ -110,7 +142,9 @@ button {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none; }
 
-.btn-12, .btn-10, .btn-11 {
+.btn-12,
+.btn-10,
+.btn-11 {
   position: relative;
   right: 20px;
   bottom: 20px;
@@ -121,7 +155,9 @@ button {
   line-height: 42px;
   -webkit-perspective: 230px;
   perspective: 230px; }
-  .btn-12 span, .btn-10 span, .btn-11 span {
+  .btn-12 span,
+  .btn-10 span,
+  .btn-11 span {
     background: #0f3443;
     background: linear-gradient(0deg, #0f3443 0%, #34e89e 100%);
     display: block;
@@ -137,7 +173,9 @@ button {
     box-sizing: border-box;
     -webkit-transition: all .3s;
     transition: all .3s; }
-    .btn-12 span:nth-child(1), .btn-10 span:nth-child(1), .btn-11 span:nth-child(1) {
+    .btn-12 span:nth-child(1),
+    .btn-10 span:nth-child(1),
+    .btn-11 span:nth-child(1) {
       box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
       -webkit-transform: rotateX(90deg);
       -moz-transform: rotateX(90deg);
@@ -145,19 +183,25 @@ button {
       -webkit-transform-origin: 50% 50% -20px;
       -moz-transform-origin: 50% 50% -20px;
       transform-origin: 50% 50% -20px; }
-    .btn-12 span:nth-child(2), .btn-10 span:nth-child(2), .btn-11 span:nth-child(2) {
+    .btn-12 span:nth-child(2),
+    .btn-10 span:nth-child(2),
+    .btn-11 span:nth-child(2) {
       -webkit-transform: rotateX(0deg);
       -moz-transform: rotateX(0deg);
       transform: rotateX(0deg);
       -webkit-transform-origin: 50% 50% -20px;
       -moz-transform-origin: 50% 50% -20px;
       transform-origin: 50% 50% -20px; }
-  .btn-12:hover span:nth-child(1), .btn-10:hover span:nth-child(1), .btn-11:hover span:nth-child(1) {
+  .btn-12:hover span:nth-child(1),
+  .btn-10:hover span:nth-child(1),
+  .btn-11:hover span:nth-child(1) {
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     -webkit-transform: rotateX(0deg);
     -moz-transform: rotateX(0deg);
     transform: rotateX(0deg); }
-  .btn-12:hover span:nth-child(2), .btn-10:hover span:nth-child(2), .btn-11:hover span:nth-child(2) {
+  .btn-12:hover span:nth-child(2),
+  .btn-10:hover span:nth-child(2),
+  .btn-11:hover span:nth-child(2) {
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     color: transparent;
     -webkit-transform: rotateX(-90deg);
