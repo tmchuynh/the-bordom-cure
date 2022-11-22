@@ -122,6 +122,37 @@ p {
   .container-fluid .random {
     border: 1px solid black;
     height: 5rem; }
+  .container-fluid .activites {
+    height: 100%; }
+    .container-fluid .activites .options {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container-fluid .activites .options .btn {
+        margin: 0; }
+      .container-fluid .activites .options .dropdown {
+        text-align: left;
+        padding-top: 2rem;
+        margin: 0 1rem; }
+        .container-fluid .activites .options .dropdown .dropdown-menu {
+          opacity: 0;
+          visibility: hidden;
+          transform-origin: top;
+          animation-fill-mode: forwards;
+          transform: scale(0.9, 0.7) translateY(-20px);
+          display: block;
+          transition: all 80ms ease;
+          margin: 0; }
+      .container-fluid .activites .options .open > .dropdown-menu {
+        transform: scale(1, 1) translateY(0);
+        opacity: 1;
+        visibility: visible; }
+      .container-fluid .activites .options .rangePrice {
+        width: 100%;
+        padding: 1rem 0; }
+      .container-fluid .activites .options .form-control {
+        width: 90%;
+        margin: 0.5rem; }
 
 button {
   margin: 20px; }
