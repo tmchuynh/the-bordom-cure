@@ -117,11 +117,17 @@ p {
       color: black;
       font-size: 12px;
       text-decoration: none; }
+  .container-fluid .rainbow,
   .container-fluid .activites,
   .container-fluid .numbers,
   .container-fluid .random {
-    border: 1px solid black;
-    height: 5rem; }
+    border: 1px solid black; }
+  .container-fluid .rainbow {
+    display: block;
+    height: fit-content; }
+    .container-fluid .rainbow canvas {
+      max-width: 100%;
+      height: auto; }
   .container-fluid .activites {
     height: 100%; }
     .container-fluid .activites .options {
