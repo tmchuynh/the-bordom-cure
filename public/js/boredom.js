@@ -14,13 +14,22 @@ var PRICE, ACCESS, TYPE, KEY, PARTICIPANTS;
 
 $(document).ready(function () {
     openCloseMenu();
+    PRICE = 0.5;
+    ACCESS = 0.5;
+    PARTICIPANTS = 1;
+    TYPE = "recreational";
     price.oninput = function () {
         priceValue.innerHTML = this.value;
-        PRICE = this.value;
+        if (this.value == null) {
+            PRICE = ""
+        } else {
+            PRICE = this.value.trim();
+
+        }
     }
     access.oninput = function () {
         accessValue.innerHTML = this.value;
-        ACCESS = this.value;
+        ACCESS = this.value.trim();
     }
 
     forms = document.querySelectorAll(".form-check");
@@ -32,7 +41,29 @@ $(document).ready(function () {
             }
             else if (document.getElementById('multiple').checked) {
                 console.log("multi");
-                PARTICIPANTS = n;
+                alertPopUp = document.querySelector(".alert");
+                alertPopUp.classList.remove("hide");
+                setTimeout(function() {
+                    alertPopUp.classList.add("hide");
+                }, 5000);
+                items = document.querySelectorAll(".dropdown-item");
+                console.log(items);
+                for (var i = 0; i < items.length; i++) {
+                    console.log(items[i]);
+                    if (items[i].innerHTML == "Busywork") {
+                        items[i].remove();
+                    } if (items[i].innerHTML == "Relaxation") {
+                        items[i].remove();
+                    } if (items[i].innerHTML == "DIY") {
+                        items[i].remove();
+                    } if (items[i].innerHTML == "Charity") {
+                        items[i].remove();
+                    } if (items[i].innerHTML == "Recreational") {
+                        items[i].remove();
+                    } if (items[i].innerHTML == "Education") {
+                        items[i].remove();
+                    }
+                }
             }
         })
     });
@@ -43,7 +74,7 @@ $(document).ready(function () {
     }
 
     btn.addEventListener("click", function () {
-        $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE + "&key=" + KEY, function (data) {
+        $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
             console.log(data);
         })
     })
@@ -57,7 +88,7 @@ function openCloseMenu() {
             dropdown.classList.remove("open");
         } else {
             dropdown.classList.add("open");
-            dropdownMenu.addEventListener("click", function(e) {
+            dropdownMenu.addEventListener("click", function (e) {
                 activity = e.target.innerHTML;
                 activity.toLowerCase();
                 console.log(activity.toLowerCase());

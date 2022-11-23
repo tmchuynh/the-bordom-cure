@@ -17,6 +17,9 @@ p {
   font-size: 14px;
   color: #011627; }
 
+.hide {
+  display: none; }
+
 .header {
   position: relative;
   text-align: center;
