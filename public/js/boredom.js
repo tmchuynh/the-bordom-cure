@@ -18,6 +18,7 @@ $(document).ready(function () {
     ACCESS = 0.5;
     PARTICIPANTS = 1;
     TYPE = "recreational";
+    KEY = "";
     price.oninput = function () {
         priceValue.innerHTML = this.value;
         if (this.value == null) {
@@ -43,9 +44,9 @@ $(document).ready(function () {
                 console.log("multi");
                 PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
                 console.log(PARTICIPANTS);
-                alertPopUp = document.querySelector(".alert");
+                alertPopUp = document.querySelector(".catLimit");
                 alertPopUp.classList.remove("hide");
-                setTimeout(function() {
+                setTimeout(function () {
                     alertPopUp.classList.add("hide");
                 }, 5000);
                 items = document.querySelectorAll(".dropdown-item");
@@ -89,20 +90,33 @@ $(document).ready(function () {
     }
 
     btn.addEventListener("click", function () {
-        if (document.getElementById('individual').checked) {
+        if (KEY != "") {
+            if (KEY < 1000000 || KEY > 9999999) {
+                keyAlert = document.querySelector(".keyLimit");
+                keyAlert.classList.remove("hide");
+                setTimeout(function () {
+                    keyAlert.classList.add("hide");
+                }, 5000);
+            } else {
+                $.get("http://www.boredapi.com/api/activity/?" + "key=" + KEY, function (data) {
+                    console.log(data);
+                })
+            }
+        } else if (document.getElementById('individual').checked) {
             $.get("http://www.boredapi.com/api/activity/?" + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
-            console.log(data);
-        })
+                console.log(data);
+            })
         } else if (document.getElementById('multiple').checked) {
             PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
 
             $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
-            console.log(data);
-        })
-        }
+                console.log(data);
+            })
+        } 
     })
 
 })
+
 
 
 function openCloseMenu() {
