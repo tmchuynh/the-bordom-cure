@@ -133,6 +133,10 @@ p {
       height: auto; }
   .container-fluid .activites {
     height: 100%; }
+    .container-fluid .activites .information {
+      padding-top: 0.5rem; }
+      .container-fluid .activites .information p {
+        margin-bottom: 0.5rem; }
     .container-fluid .activites .options {
       display: flex;
       flex-direction: column;

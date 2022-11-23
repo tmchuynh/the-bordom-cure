@@ -37,11 +37,11 @@ $(document).ready(function () {
     forms.forEach(element => {
         element.addEventListener("click", function () {
             if (document.getElementById('individual').checked) {
-                console.log("indiv");
                 PARTICIPANTS = 1;
+                dropdownToggle.innerHTML = "Category Options";
+                reAdd();
             }
             else if (document.getElementById('multiple').checked) {
-                console.log("multi");
                 PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
                 console.log(PARTICIPANTS);
                 alertPopUp = document.querySelector(".catLimit");
@@ -50,9 +50,7 @@ $(document).ready(function () {
                     alertPopUp.classList.add("hide");
                 }, 5000);
                 items = document.querySelectorAll(".dropdown-item");
-                // console.log(items);
                 for (var i = 0; i < items.length; i++) {
-                    // console.log(items[i]);
                     if (items[i].innerHTML == "Busywork" || (items[i].innerHTML == "Busywork" && dropdownToggle.innerHTML == "Busywork")) {
                         items[i].remove();
                         dropdownToggle.innerHTML = "Social";
@@ -79,13 +77,11 @@ $(document).ready(function () {
                         TYPE = "cooking";
                     }
                 }
-                console.log(TYPE);
             }
         })
     });
 
     keyNum.oninput = function () {
-        console.log(this.value);
         KEY = this.value;
     }
 
@@ -99,20 +95,20 @@ $(document).ready(function () {
                 }, 5000);
             } else {
                 $.get("http://www.boredapi.com/api/activity/?" + "key=" + KEY, function (data) {
-                    console.log(data);
+                    uploadData(data);
                 })
             }
         } else if (document.getElementById('individual').checked) {
             $.get("http://www.boredapi.com/api/activity/?" + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
-                console.log(data);
+                uploadData(data);
             })
         } else if (document.getElementById('multiple').checked) {
             PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
 
             $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
-                console.log(data);
+                uploadData(data);
             })
-        } 
+        }
     })
 
 })
@@ -136,3 +132,30 @@ function openCloseMenu() {
     });
 }
 
+function uploadData(data) {
+    var name = document.querySelector(".name");
+    var people = document.querySelector(".required");
+    var keyNum = document.querySelector(".keyNum");
+    var subject = document.querySelector(".subject");
+
+    name.innerHTML = data.activity;
+    people.innerHTML = "Participants: " + data.participants;
+    keyNum = "Key #: " + data.key;
+    subject.innerHTML = "Type: " + data.type;
+}
+
+
+function reAdd() {
+    types = ["Education", "Recreational", "Social", "DIY", "Charity", "Cooking", "Relaxation", "Music", "Busywork"];
+    while(dropdownMenu.firstChild) {
+        dropdownMenu.removeChild(dropdownMenu.lastChild);
+    }
+    for (var i = 0; i < 10; i++) {
+        listItem = document.createElement("li");
+        link = document.createElement("a");
+        link.classList.add("dropdown-item");
+        link.innerHTML = types[i];
+        listItem.appendChild(link);
+        dropdownMenu.appendChild(listItem);
+    }
+}

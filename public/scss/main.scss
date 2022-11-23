@@ -203,6 +203,13 @@ p {
 
     .activites {
         height: 100%;
+        .information {
+            padding-top: 0.5rem;
+
+            p {
+                margin-bottom: 0.5rem;
+            }
+        }
 
         .options {
             display: flex;
