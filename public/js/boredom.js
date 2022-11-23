@@ -41,29 +41,44 @@ $(document).ready(function () {
             }
             else if (document.getElementById('multiple').checked) {
                 console.log("multi");
+                PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
+                console.log(PARTICIPANTS);
                 alertPopUp = document.querySelector(".alert");
                 alertPopUp.classList.remove("hide");
                 setTimeout(function() {
                     alertPopUp.classList.add("hide");
                 }, 5000);
                 items = document.querySelectorAll(".dropdown-item");
-                console.log(items);
+                // console.log(items);
                 for (var i = 0; i < items.length; i++) {
-                    console.log(items[i]);
-                    if (items[i].innerHTML == "Busywork") {
+                    // console.log(items[i]);
+                    if (items[i].innerHTML == "Busywork" || (items[i].innerHTML == "Busywork" && dropdownToggle.innerHTML == "Busywork")) {
                         items[i].remove();
-                    } if (items[i].innerHTML == "Relaxation") {
+                        dropdownToggle.innerHTML = "Social";
+                        TYPE = "social";
+                    } if (items[i].innerHTML == "Relaxation" || (items[i].innerHTML == "Relaxation" && dropdownToggle.innerHTML == "Relaxation")) {
                         items[i].remove();
-                    } if (items[i].innerHTML == "DIY") {
+                        dropdownToggle.innerHTML == "Music";
+                        TYPE = "music";
+                    } if (items[i].innerHTML == "DIY" || (items[i].innerHTML == "DIY" && dropdownToggle.innerHTML == "DIY")) {
                         items[i].remove();
-                    } if (items[i].innerHTML == "Charity") {
+                        dropdownToggle.innerHTML == "Cooking";
+                        TYPE = "cooking";
+                    } if (items[i].innerHTML == "Charity" || (items[i].innerHTML == "Charity" && dropdownToggle.innerHTML == "Charity")) {
                         items[i].remove();
-                    } if (items[i].innerHTML == "Recreational") {
+                        dropdownToggle.innerHTML == "Social";
+                        TYPE = "social";
+                    } if (items[i].innerHTML == "Recreational" || (items[i].innerHTML == "Recreational" && dropdownToggle.innerHTML == "Recreational")) {
                         items[i].remove();
-                    } if (items[i].innerHTML == "Education") {
+                        dropdownToggle.innerHTML == "Social";
+                        TYPE = "social";
+                    } if (items[i].innerHTML == "Education" || (items[i].innerHTML == "Education" && dropdownToggle.innerHTML == "Education")) {
                         items[i].remove();
+                        dropdownToggle.innerHTML == "Cooking";
+                        TYPE = "cooking";
                     }
                 }
+                console.log(TYPE);
             }
         })
     });
@@ -74,9 +89,17 @@ $(document).ready(function () {
     }
 
     btn.addEventListener("click", function () {
-        $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
+        if (document.getElementById('individual').checked) {
+            $.get("http://www.boredapi.com/api/activity/?" + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
             console.log(data);
         })
+        } else if (document.getElementById('multiple').checked) {
+            PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
+
+            $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
+            console.log(data);
+        })
+        }
     })
 
 })
