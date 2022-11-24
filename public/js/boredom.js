@@ -4,7 +4,7 @@ price = document.querySelector("#price");
 priceValue = document.querySelector(".priceNum");
 access = document.querySelector("#access");
 accessValue = document.querySelector(".accessNum");
-keyNum = document.querySelector(".form-control");
+keyNum = document.querySelector(".keyNumber");
 
 dropdown = document.querySelector(".dropdown");
 dropdownToggle = document.querySelector(".dropdown-toggle");

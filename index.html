@@ -102,17 +102,24 @@
                 <div class="alert alert-danger hide keyLimit" role="alert">
                     Keys need to be a unique numeric id between 1000000 and 9999999.
                 </div>
-                <input class="form-control form-control-sm" type="text" value="" placeholder="Activity Key Number"
-                    aria-label=".form-control-sm example">
-
+                <input class="form-control keyNumber form-control-sm" type="text" value="" placeholder="Activity Key Number"
+                    aria-label=".form-control-sm">
                 <button class="custom-btn btn-11"><span>Click!</span><span>Show More</span></button>
             </section>
 
         </div>
         <div class="numbers">
             <div>
-                <p class="facts">s</p>
+                <div class="d-flex input-form">
+                    <input class="form-control dateNum form-control-sm" type="text" value="" placeholder="Enter a number or date (MM/DD)"
+                    aria-label=".form-control-sm example">
+                    <button class="btn dateSubmit">Submit</button>
+                </div>
+                
+                <p class="facts">or click one of the buttons below to see a random fact</p>
+
             </div>
+            
             <button class="custom-btn btn-20 trivia"><span>Click!</span><span>Trivia</span></button>
             <button class="custom-btn btn-21 year"><span>Click!</span><span>Year</span></button>
             <button class="custom-btn btn-22 date"><span>Click!</span><span>Date</span></button>
