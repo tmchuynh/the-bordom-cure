@@ -166,6 +166,9 @@ p {
       .container-fluid .activites .options .form-control {
         width: 90%;
         margin: 0.5rem; }
+  .container-fluid .numbers p {
+    padding-top: 1rem;
+    font-weight: bold; }
 
 button {
   margin: 20px; }
@@ -188,7 +191,11 @@ button {
 
 .btn-12,
 .btn-10,
-.btn-11 {
+.btn-11,
+.btn-20,
+.btn-21,
+.btn-22,
+.btn-23 {
   position: relative;
   right: 20px;
   bottom: 20px;
@@ -201,7 +208,11 @@ button {
   perspective: 230px; }
   .btn-12 span,
   .btn-10 span,
-  .btn-11 span {
+  .btn-11 span,
+  .btn-20 span,
+  .btn-21 span,
+  .btn-22 span,
+  .btn-23 span {
     background: #0f3443;
     background: linear-gradient(0deg, #0f3443 0%, #34e89e 100%);
     display: block;
@@ -219,7 +230,11 @@ button {
     transition: all .3s; }
     .btn-12 span:nth-child(1),
     .btn-10 span:nth-child(1),
-    .btn-11 span:nth-child(1) {
+    .btn-11 span:nth-child(1),
+    .btn-20 span:nth-child(1),
+    .btn-21 span:nth-child(1),
+    .btn-22 span:nth-child(1),
+    .btn-23 span:nth-child(1) {
       box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
       -webkit-transform: rotateX(90deg);
       -moz-transform: rotateX(90deg);
@@ -229,7 +244,11 @@ button {
       transform-origin: 50% 50% -20px; }
     .btn-12 span:nth-child(2),
     .btn-10 span:nth-child(2),
-    .btn-11 span:nth-child(2) {
+    .btn-11 span:nth-child(2),
+    .btn-20 span:nth-child(2),
+    .btn-21 span:nth-child(2),
+    .btn-22 span:nth-child(2),
+    .btn-23 span:nth-child(2) {
       -webkit-transform: rotateX(0deg);
       -moz-transform: rotateX(0deg);
       transform: rotateX(0deg);
@@ -238,14 +257,22 @@ button {
       transform-origin: 50% 50% -20px; }
   .btn-12:hover span:nth-child(1),
   .btn-10:hover span:nth-child(1),
-  .btn-11:hover span:nth-child(1) {
+  .btn-11:hover span:nth-child(1),
+  .btn-20:hover span:nth-child(1),
+  .btn-21:hover span:nth-child(1),
+  .btn-22:hover span:nth-child(1),
+  .btn-23:hover span:nth-child(1) {
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     -webkit-transform: rotateX(0deg);
     -moz-transform: rotateX(0deg);
     transform: rotateX(0deg); }
   .btn-12:hover span:nth-child(2),
   .btn-10:hover span:nth-child(2),
-  .btn-11:hover span:nth-child(2) {
+  .btn-11:hover span:nth-child(2),
+  .btn-20:hover span:nth-child(2),
+  .btn-21:hover span:nth-child(2),
+  .btn-22:hover span:nth-child(2),
+  .btn-23:hover span:nth-child(2) {
     box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5), 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
     color: transparent;
     -webkit-transform: rotateX(-90deg);

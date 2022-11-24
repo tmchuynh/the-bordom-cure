@@ -203,6 +203,7 @@ p {
 
     .activites {
         height: 100%;
+
         .information {
             padding-top: 0.5rem;
 
@@ -211,10 +212,12 @@ p {
             }
         }
 
+
         .options {
             display: flex;
             flex-direction: column;
             align-items: center;
+
             .btn {
                 margin: 0;
 
@@ -249,12 +252,20 @@ p {
                 width: 100%;
                 padding: 1rem 0;
             }
+
             .form-control {
                 width: 90%;
                 margin: 0.5rem;
             }
         }
 
+    }
+
+    .numbers {
+        p {
+            padding-top: 1rem;
+            font-weight: bold;
+        }
     }
 }
 
@@ -283,7 +294,11 @@ button {
 
 .btn-12,
 .btn-10,
-.btn-11 {
+.btn-11,
+.btn-20,
+.btn-21,
+.btn-22,
+.btn-23 {
     position: relative;
     right: 20px;
     bottom: 20px;
