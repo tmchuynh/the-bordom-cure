@@ -187,7 +187,7 @@ p {
     .rainbow,
     .activites,
     .numbers,
-    .random {
+    .joke {
         border: 1px solid black;
     }
 
@@ -285,6 +285,16 @@ p {
         }
 
     }
+
+    .joke {
+        height: fit-content;
+        h5 {
+            padding-top: 3rem;
+        }
+        .statement {
+            margin: 2rem;
+        }
+    }
 }
 
 // --------------------------------------------
@@ -316,7 +326,8 @@ button {
 .btn-20,
 .btn-21,
 .btn-22,
-.btn-23 {
+.btn-23,
+.btn-24 {
     position: relative;
     right: 20px;
     bottom: 20px;
