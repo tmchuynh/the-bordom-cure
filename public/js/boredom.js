@@ -36,15 +36,17 @@ $(document).ready(function () {
     forms = document.querySelectorAll(".form-check");
     forms.forEach(element => {
         element.addEventListener("click", function () {
+            alertPopUp = document.querySelector(".catLimit");
+
             if (document.getElementById('individual').checked) {
                 PARTICIPANTS = 1;
                 dropdownToggle.innerHTML = "Category Options";
+                alertPopUp.classList.add("hide");
                 reAdd();
             }
             else if (document.getElementById('multiple').checked) {
                 PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
                 console.log(PARTICIPANTS);
-                alertPopUp = document.querySelector(".catLimit");
                 alertPopUp.classList.remove("hide");
                 setTimeout(function () {
                     alertPopUp.classList.add("hide");
@@ -77,6 +79,7 @@ $(document).ready(function () {
                         TYPE = "cooking";
                     }
                 }
+                console.log(dropdownMenu)
             }
         })
     });

@@ -4,19 +4,35 @@ joke = document.querySelector(".statement");
 jokes = [];
 
 btn.addEventListener("click", function () {
-    $.get("https://v2.jokeapi.dev/joke/Any?amount=10", function (data) {
-        console.log(data);
-        d = {}
-        if (data.jokes[0].setup == undefined) {
-            jokes.push(data.jokes[0].joke)
-            console.log(jokes);
+    do {
+        if (jokes[jokes.length] == 1) {
+            joke.innerHTML = jokes[jokes.length][0] + "<br><br>" + jokes[jokes.length][1];
         } else {
-            s = data.jokes[0].setup
-            p = data.jokes[0].delivery;
-            d[s] = p;
-            console.log(d);
-
+            joke.innerHTML = jokes[jokes.length]
         }
+        console.log(jokes);
+        break;
+    } while (jokes.length > 0);
+    if (jokes.length == 0) {
+        $.get("https://v2.jokeapi.dev/joke/Any?amount=10", function (data) {
+            console.log(data);
+            d = []
+            for (var i = 0; i < 10; i++) {
+                if (data.jokes[i].joke != undefined) {
+                    jokes.push(data.jokes[i].joke)
+                    console.log(jokes);
+                    break;
+                } else if (data.jokes[i].setup != undefined) {
+                    s = data.jokes[i].setup
+                    p = data.jokes[i].delivery;
+                    d.push([s,p]);
+                    jokes.push(d);
+                    console.log(d);
+                }
+            }
 
-    })
+
+        })
+    }
+
 })
