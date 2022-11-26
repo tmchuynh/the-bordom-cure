@@ -36,6 +36,7 @@ $(document).ready(function () {
     forms = document.querySelectorAll(".form-check");
     forms.forEach(element => {
         element.addEventListener("click", function () {
+
             alertPopUp = document.querySelector(".catLimit");
 
             if (document.getElementById('individual').checked) {
@@ -79,7 +80,6 @@ $(document).ready(function () {
                         TYPE = "cooking";
                     }
                 }
-                console.log(dropdownMenu)
             }
         })
     });
@@ -153,7 +153,7 @@ function reAdd() {
     while(dropdownMenu.firstChild) {
         dropdownMenu.removeChild(dropdownMenu.lastChild);
     }
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 9; i++) {
         listItem = document.createElement("li");
         link = document.createElement("a");
         link.classList.add("dropdown-item");
