@@ -87,35 +87,36 @@ $(document).ready(function () {
     keyNum.oninput = function () {
         KEY = this.value;
     }
+})
 
-    btn.addEventListener("click", function () {
-        if (KEY != "") {
-            if (KEY < 1000000 || KEY > 9999999) {
-                keyAlert = document.querySelector(".keyLimit");
-                keyAlert.classList.remove("hide");
-                setTimeout(function () {
-                    keyAlert.classList.add("hide");
-                }, 5000);
-            } else {
-                $.get("http://www.boredapi.com/api/activity/?" + "key=" + KEY, function (data) {
-                    uploadData(data);
-                })
-            }
-        } else if (document.getElementById('individual').checked) {
-            $.get("http://www.boredapi.com/api/activity/?" + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
-                uploadData(data);
-            })
-        } else if (document.getElementById('multiple').checked) {
-            PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
-
-            $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
+btn.addEventListener("click", function () {
+    if (KEY != "") {
+        console.log("no key");
+        if (KEY < 1000000 || KEY > 9999999) {
+            keyAlert = document.querySelector(".keyLimit");
+            keyAlert.classList.remove("hide");
+            setTimeout(function () {
+                keyAlert.classList.add("hide");
+            }, 5000);
+        } else {
+            $.get("http://www.boredapi.com/api/activity/?" + "key=" + KEY, function (data) {
                 uploadData(data);
             })
         }
-    })
+    } else if (document.getElementById('individual').checked) {
+        console.log("individual");
+        $.get("http://www.boredapi.com/api/activity/?" + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
+            uploadData(data);
+        })
+    } else if (document.getElementById('multiple').checked) {
+        console.log("Multiple");
+        PARTICIPANTS = Math.floor(Math.random(2, 5) * 5 + 1);
 
+        $.get("http://www.boredapi.com/api/activity/?" + "maxaccessibility=" + ACCESS + "&maxprice=" + PRICE + "&participants=" + PARTICIPANTS + "&type=" + TYPE, function (data) {
+            uploadData(data);
+        })
+    }
 })
-
 
 
 function openCloseMenu() {
@@ -136,6 +137,7 @@ function openCloseMenu() {
 }
 
 function uploadData(data) {
+    console.log(data);
     var name = document.querySelector(".name");
     var people = document.querySelector(".required");
     var keyNum = document.querySelector(".keyNum");
@@ -150,7 +152,7 @@ function uploadData(data) {
 
 function reAdd() {
     types = ["Education", "Recreational", "Social", "DIY", "Charity", "Cooking", "Relaxation", "Music", "Busywork"];
-    while(dropdownMenu.firstChild) {
+    while (dropdownMenu.firstChild) {
         dropdownMenu.removeChild(dropdownMenu.lastChild);
     }
     for (var i = 0; i < 9; i++) {
